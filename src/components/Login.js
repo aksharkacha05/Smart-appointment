@@ -1,8 +1,8 @@
 // src/components/Login.js
 import React, { useState } from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, ActivityIndicator } from 'react-native';
 import { Appbar, TextInput, Button, Text, Snackbar } from 'react-native-paper';
-import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
+import { signInWithEmailAndPassword } from 'firebase/auth';
 import { doc, getDoc } from 'firebase/firestore';
 import { auth, db } from '../firebase'; // Adjust the path as needed
 
@@ -11,10 +11,12 @@ const Login = ({ navigation }) => {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [visible, setVisible] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const onDismissSnackBar = () => setVisible(false);
 
   const handleLogin = async () => {
+    setLoading(true);
     try {
       const userCredential = await signInWithEmailAndPassword(auth, email, password);
       const user = userCredential.user;
@@ -33,6 +35,8 @@ const Login = ({ navigation }) => {
     } catch (error) {
       setError(error.message);
       setVisible(true);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -44,20 +48,20 @@ const Login = ({ navigation }) => {
       <TextInput
         label="Email"
         value={email}
-        onChangeText={text => setEmail(text)}
+        onChangeText={setEmail}
         style={styles.input}
         mode="outlined"
       />
       <TextInput
         label="Password"
         value={password}
-        onChangeText={text => setPassword(text)}
+        onChangeText={setPassword}
         style={styles.input}
         secureTextEntry
         mode="outlined"
       />
-      <Button mode="contained" onPress={handleLogin} style={styles.button}>
-        Login
+      <Button mode="contained" onPress={handleLogin} style={styles.button} disabled={loading}>
+        {loading ? <ActivityIndicator color="#fff" /> : 'Login'}
       </Button>
       <Snackbar
         visible={visible}
