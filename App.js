@@ -3,6 +3,7 @@ import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { Provider as PaperProvider, DefaultTheme } from 'react-native-paper';
+import HomePage from './src/components/HomePage'; // Import the HomePage component
 import StudentDashboard from './src/components/StudentDashboard';
 import LecturerDashboard from './src/components/LecturerDashboard';
 import About from './src/components/About';
@@ -16,8 +17,8 @@ const theme = {
   ...DefaultTheme,
   colors: {
     ...DefaultTheme.colors,
-    primary: '#6200ee', // Your primary color
-    accent: '#03dac4', // Your accent color
+    primary: '#454545', // Your primary color
+    accent: '#ccc', // Your accent color
   },
 };
 
@@ -25,7 +26,8 @@ const App = () => {
   return (
     <PaperProvider theme={theme}>
       <NavigationContainer>
-        <Stack.Navigator initialRouteName="Appointment Booking">
+        <Stack.Navigator initialRouteName="Home">
+          <Stack.Screen name="Home" component={HomePage} />
           <Stack.Screen name="Sign Up" component={SignUp} />
           <Stack.Screen name="Login" component={Login} />
           <Stack.Screen name="Appointment Booking" component={AppointmentBooking} />
