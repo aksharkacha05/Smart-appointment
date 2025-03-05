@@ -42,9 +42,7 @@ const Login = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
-      <Appbar.Header>
-        <Appbar.Content title="Login" />
-      </Appbar.Header>
+     
       <TextInput
         label="Email"
         value={email}
