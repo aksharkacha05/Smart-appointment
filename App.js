@@ -8,6 +8,7 @@ import LecturerDashboard from './src/components/LecturerDashboard';
 import About from './src/components/About';
 import Login from './src/components/Login'; // Import the Login component
 import SignUp from './src/components/SignUp'; // Import the SignUp component
+import AppointmentBooking from './src/components/AppointmentBooking'; // Import the AppointmentBooking component
 
 const Stack = createStackNavigator();
 
@@ -24,9 +25,10 @@ const App = () => {
   return (
     <PaperProvider theme={theme}>
       <NavigationContainer>
-        <Stack.Navigator initialRouteName="Sign Up">
+        <Stack.Navigator initialRouteName="Appointment Booking">
           <Stack.Screen name="Sign Up" component={SignUp} />
           <Stack.Screen name="Login" component={Login} />
+          <Stack.Screen name="Appointment Booking" component={AppointmentBooking} />
           <Stack.Screen name="Student Dashboard" component={StudentDashboard} />
           <Stack.Screen name="Lecturer Dashboard" component={LecturerDashboard} />
           <Stack.Screen name="About" component={About} />
