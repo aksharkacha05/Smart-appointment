@@ -12,7 +12,6 @@ import Login from './src/components/Login'; // Import the Login component
 import SignUp from './src/components/SignUp'; // Import the SignUp component
 import AppointmentBooking from './src/components/AppointmentBooking'; // Import the AppointmentBooking component
 import SplashScreen from './src/components/SplashScreen'; // Import the SplashScreen component
-import MainTabNavigator from './src/components/MainTabNavigator'; // Import the Tab Navigator
 
 const Stack = createStackNavigator();
 
@@ -31,9 +30,9 @@ const App = () => {
       <NavigationContainer>
         <Stack.Navigator initialRouteName="Splash">
           <Stack.Screen name="Splash" component={SplashScreen} options={{ headerShown: false }} />
-          <Stack.Screen name="Login" component={Login} />
-          <Stack.Screen name="Main" component={MainTabNavigator} options={{ headerShown: false }} />
+          <Stack.Screen name="Home" component={HomePage} />
           <Stack.Screen name="Sign Up" component={SignUp} />
+          <Stack.Screen name="Login" component={Login} />
           <Stack.Screen name="Appointment Booking" component={AppointmentBooking} />
           <Stack.Screen name="Student Dashboard" component={StudentDashboard} />
           <Stack.Screen name="Lecturer Dashboard" component={LecturerDashboard} />

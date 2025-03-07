@@ -42,6 +42,7 @@ const Login = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
+      <Text style={styles.text}>Login</Text>
      
       <TextInput
         label="Email"
@@ -80,6 +81,10 @@ const styles = StyleSheet.create({
   },
   input: {
     marginBottom: 16,
+  },
+  text:{
+      fontSize:30,
+      color:'black'
   },
   button: {
     marginTop: 16,

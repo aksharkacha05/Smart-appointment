@@ -40,9 +40,7 @@ const SignUp = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
-      <Appbar.Header>
-        <Appbar.Content title="Sign Up" />
-      </Appbar.Header>
+     <Text style={styles.text}>Sign Up</Text>
       <TextInput
         label="Email"
         value={email}
@@ -99,6 +97,10 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
   },
+  text:{
+    fontSize:30,
+    color:'black'
+  }
 });
 
 export default SignUp;

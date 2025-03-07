@@ -5,7 +5,7 @@ import { Text } from 'react-native-paper';
 const SplashScreen = ({ navigation }) => {
   useEffect(() => {
     const timer = setTimeout(() => {
-      navigation.replace('Main'); // Navigate to Home after 3 seconds
+      navigation.replace('Home'); // Navigate to Home after 3 seconds
     }, 3000); // 3000 milliseconds = 3 seconds
 
     return () => clearTimeout(timer); // Cleanup the timer on unmount
